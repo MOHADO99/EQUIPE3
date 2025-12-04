@@ -56490,8 +56490,7 @@ function toggleStats() {
                     });
                 });
             map_f3d3f551fb26c02de1ac926397aa5d50.addControl( geo_json_e20ccc5ff296e88c2557ee4eebae0d4bsearchControl );
-
-        // === Fonction principale pour activer le GPS ===
+// === Fonction principale pour activer le GPS ===
 let userMarker;
 
 function locateUser(showMessage = true) {
@@ -56506,15 +56505,15 @@ function locateUser(showMessage = true) {
             const lng = position.coords.longitude;
 
             // Supprimer l'ancien marqueur si existe
-            if (userMarker) map_bdb6730597835266f38b781ef766530a.removeLayer(userMarker);
+            if (userMarker) map_f3d3f551fb26c02de1ac926397aa5d50.removeLayer(userMarker);
 
             // Ajouter le marqueur du nouveau point
             userMarker = L.marker([lat, lng])
-                .addTo(map_bdb6730597835266f38b781ef766530a)
+                .addTo(map_f3d3f551fb26c02de1ac926397aa5d50)
                 .bindPopup("📍 Vous êtes ici").openPopup();
 
             // Centrer la carte sur la position
-            map_bdb6730597835266f38b781ef766530a.setView([lat, lng], 15);
+            map_f3d3f551fb26c02de1ac926397aa5d50.setView([lat, lng], 15);
 
             if (showMessage) {
                 console.log("✅ Position mise à jour !");
@@ -56530,7 +56529,7 @@ function locateUser(showMessage = true) {
 // === Démarrage automatique du GPS au chargement ===
 locateUser(false);
 
-// === Bouton "Actualiser ma position" en bas ===
+// === Bouton "Actualiser ma position" ===
 const gpsButton = L.DomUtil.create('button', 'gps-refresh-button');
 gpsButton.innerHTML = '🔄 Actualiser ma position';
 Object.assign(gpsButton.style, {
@@ -56551,5 +56550,7 @@ Object.assign(gpsButton.style, {
 });
 gpsButton.onclick = () => locateUser();
 document.body.appendChild(gpsButton);
+
+        
 </script>
 </html>
